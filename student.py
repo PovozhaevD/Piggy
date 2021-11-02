@@ -56,7 +56,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def vanek(self):
+    def povozhaev(self):
       
       for i in range(4):
         self.fwd()
