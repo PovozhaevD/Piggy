@@ -59,6 +59,12 @@ class Piggy(PiggyParent):
     def povozhaev(self):
       self.deg_fwd(360)
       self.turn_by_deg(90)
+      self.deg_fwd(360)
+      self.turn_by_deg(90)
+      self.deg_fwd(360)
+      self.turn_by_deg(90)
+      self.deg_fwd(360)
+      self.turn_by_deg(90)
 
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
