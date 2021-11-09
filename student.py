@@ -58,7 +58,7 @@ class Piggy(PiggyParent):
     '''
     def povozhaev(self):
       self.deg_fwd(360)
-      
+      self.turn_by_deg(90)
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
         # TODO: check to see if it's safe before dancing
@@ -71,7 +71,9 @@ class Piggy(PiggyParent):
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
-        pass
+        self.deg_fwd(360)
+        self.turn_by_deg(360)
+        self.scan()
 
     def shake(self):
         """ Another example move """
