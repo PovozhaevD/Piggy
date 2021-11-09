@@ -59,10 +59,11 @@ class Piggy(PiggyParent):
     def povozhaev(self):
       self.deg_fwd(360)
       self.turn_by_deg(90)
+
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
         # TODO: check to see if it's safe before dancing
-        
+        self.safe_to_dance()
         # lower-ordered example...
         self.right(primary=50, counter=50)
         time.sleep(2)
