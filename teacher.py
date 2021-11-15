@@ -6,10 +6,9 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/GoPiGo3/blob/master/LICENSE.md
 # Distance sensor and IMU both plugged into I2C
-import gopigo3, sys, time
+import gopigo3, sys, time, read_distance
 from di_sensors.easy_distance_sensor import EasyDistanceSensor
 from di_sensors import inertial_measurement_unit
-import read_distance
 
 class PiggyParent(gopigo3.GoPiGo3):
 
