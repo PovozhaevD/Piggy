@@ -2,7 +2,6 @@
 from teacher import PiggyParent
 import sys
 import time
-from teacher import read_distance
 
 class Piggy(PiggyParent):
 
