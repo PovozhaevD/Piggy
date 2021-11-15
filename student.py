@@ -116,8 +116,9 @@ class Piggy(PiggyParent):
         self.stop()
 
     def stop_at_wall(self):
-      self.read_distance()
-        #if distance = <100
+      while True():
+        self.read_distance()
+          #if distance = <100
 
 
 
