@@ -9,6 +9,7 @@
 import gopigo3, sys, time
 from di_sensors.easy_distance_sensor import EasyDistanceSensor
 from di_sensors import inertial_measurement_unit
+import read_distance
 
 class PiggyParent(gopigo3.GoPiGo3):
 

@@ -2,6 +2,7 @@
 from teacher import PiggyParent
 import sys
 import time
+from teacher import read_distance
 
 class Piggy(PiggyParent):
 
@@ -116,7 +117,7 @@ class Piggy(PiggyParent):
         self.stop()
 
     def stop_at_wall(self):
-      #read_distance(self)
+      self.read_distance()
         #if distance = <100
 
 
