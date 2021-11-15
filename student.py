@@ -42,6 +42,7 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "p": ("Povozhaev Test", self.povozhaev)
+                "w": ("Check For wall", self.safe_to_dance)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -56,7 +57,11 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
+
     def povozhaev(self):
+      pass
+
+    def square(self):
       self.deg_fwd(360)
       time.sleep(1)
       self.turn_by_deg(90)
@@ -109,6 +114,24 @@ class Piggy(PiggyParent):
         """ Another example move """
         self.deg_fwd(720)
         self.stop()
+
+    def stop_at_wall(self):
+      read_distance(self)
+        if distance = <100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
