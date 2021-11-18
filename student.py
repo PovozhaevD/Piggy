@@ -131,7 +131,7 @@ class Piggy(PiggyParent):
           time.sleep(1)
           self.stop()
           self.fwd()  
-""""
+"""
     def stop_turn_around_wall(self):
         self.fwd()
       while True:
@@ -144,7 +144,7 @@ class Piggy(PiggyParent):
           self.stop
           self.left()
           time.sleep(1)
-""""
+"""
 
 
 
