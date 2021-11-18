@@ -124,9 +124,9 @@ class Piggy(PiggyParent):
           self.stop()
 
     def stop_turn(self):
-        self.fwd() 
+      self.fwd() 
       while True:
-        if (self.read_distance() < 150):
+        if self.read_distance() < 150:
           self.right()
           time.sleep(1)
           self.stop()
