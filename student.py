@@ -44,6 +44,7 @@ class Piggy(PiggyParent):
                 "p": ("Povozhaev Test", self.povozhaev),
                 "w": ("Check For wall", self.stop_at_wall),
                 "wt": ("Check For wall and turn",self.stop_turn)
+                "aw": ("Check and turn around wall", self.stop_turn_around_wall)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -123,13 +124,26 @@ class Piggy(PiggyParent):
           self.stop()
 
     def stop_turn(self):
-      self.fwd()
+        self.fwd()
       while True:
         if self.read_distance() < 150 :
           self.right()
           time.sleep(1)
           self.stop()
-          self.fwd()
+          self.fwd()  
+
+    def stop_turn_around_wall(self):
+        self.fwd()
+      while True:
+        if self.read_distance() < 150 :
+          self.right()
+          time.sleep(1)
+          self.stop()
+          self.fwd() 
+          time.sleep(2) 
+          self.stop
+          self.left()
+          time.sleep(1)
 
 
 
