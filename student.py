@@ -127,7 +127,7 @@ class Piggy(PiggyParent):
       while True:
         if self.read_distance() < 150 :
           self.right()
-          time.sleep(2)
+          time.sleep(1)
           self.stop()
           self.fwd()
 
