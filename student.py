@@ -42,7 +42,8 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "p": ("Povozhaev Test", self.povozhaev),
-                "w": ("Check For wall", self.stop_at_wall)
+                "w": ("Check For wall", self.stop_at_wall),
+                "wt": ("Check For wall and turn" self.stop_turn)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -121,6 +122,11 @@ class Piggy(PiggyParent):
         if self.read_distance() < 150 :
           self.stop()
 
+    def stop_turn(self):
+      self.fwd()
+      while True:
+        if self.read_distance() < 150 :
+          self.stop()
 
 
 
