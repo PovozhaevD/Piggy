@@ -129,7 +129,7 @@ class Piggy(PiggyParent):
           self.stop()
           self.right()
           self.stop()
-          self.forward()
+          self.fwd()
 
 
 
