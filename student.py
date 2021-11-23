@@ -151,10 +151,8 @@ def check_where_to_turn_around_box(self):
   while True:
     if self.read_distance() < 150:
       self.servo(1000)
-      
-
-
-
+    else:
+      self.fwd()
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
         self.right() # start rotating right
