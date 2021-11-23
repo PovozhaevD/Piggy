@@ -43,8 +43,7 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "p": ("Povozhaev Test", self.povozhaev),
                 "w": ("Check For wall", self.stop_at_wall),
-                "wt": ("Check For wall and turn",self.stop_turn),
-                "aw": ("Check and turn around wall", self.stop_turn_around_wall)
+                "wt": ("Check For wall and turn",self.stop_turn)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -131,7 +130,7 @@ class Piggy(PiggyParent):
           time.sleep(1)
           self.stop()
           self.fwd()  
-          
+
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
         self.right() # start rotating right
