@@ -34,7 +34,7 @@ class Piggy(PiggyParent):
         ## This is a DICTIONARY, it's a list with custom index values. Python is cool.
         # Please feel free to change the menu and add options.
         print("\n *** MENU ***") 
-        menu = {"n": ("Navigate", self.nav),
+        menu = {
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
                 "s": ("Shy", self.shy),
@@ -146,13 +146,9 @@ class Piggy(PiggyParent):
           self.stop()
           self.fwd()
 
-def check_where_to_turn_around_box(self):
-  self.fwd()
-  while True:
-    if self.read_distance() < 150:
-      self.servo(1000)
-    else:
-      self.fwd()
+
+
+
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
         self.right() # start rotating right
