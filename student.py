@@ -44,7 +44,8 @@ class Piggy(PiggyParent):
                 "p": ("Povozhaev Test", self.povozhaev),
                 "w": ("Check For wall", self.stop_at_wall),
                 "wt": ("Check For wall and turn",self.stop_turn),
-                "taw": ("Check For wall and turn around it", self.check_turn_around_wall)
+                "taw": ("Check For wall and turn around it", self.check_turn_around_wall),
+                "sff": ("Scan for open space to leave wall", self.scan_around_wall)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
