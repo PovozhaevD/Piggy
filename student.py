@@ -146,6 +146,12 @@ class Piggy(PiggyParent):
           self.stop()
           self.fwd()
 
+def check_where_to_turn_around_box(self):
+  self.fwd()
+  while True:
+    if self.read_distance() < 150:
+      self.servo(1000)
+      
 
 
 
