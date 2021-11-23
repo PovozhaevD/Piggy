@@ -131,32 +131,7 @@ class Piggy(PiggyParent):
           time.sleep(1)
           self.stop()
           self.fwd()  
-"""
-    def stop_turn_around_wall(self):
-        self.fwd()
-      while True:
-        if self.read_distance() < 150 :
-          self.right()
-          time.sleep(1)
-          self.stop()
-          self.fwd() 
-          time.sleep(2) 
-          self.stop
-          self.left()
-          time.sleep(1)
-"""
-
-
-
-
-
-
-
-
-
-
-
-
+          
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
         self.right() # start rotating right
