@@ -146,7 +146,11 @@ class Piggy(PiggyParent):
           self.stop()
           self.fwd()
 
-
+    def scan_around_wall(self):
+      self.fwd()
+      while True:
+        if self.read_distance() < 150:
+          self.servo(1000)
 
 
     def example_move(self):
