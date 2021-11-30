@@ -123,7 +123,7 @@ class Piggy(PiggyParent):
       while True:
         if self.read_distance() < 150 :
           self.stop()
-"""
+
     def stop_turn(self):
       self.fwd() 
       while True:
@@ -132,7 +132,7 @@ class Piggy(PiggyParent):
           time.sleep(1)
           self.stop()
           self.fwd()  
-"""
+
     def check_turn_around_wall(self):
       self.fwd()
       while True:
