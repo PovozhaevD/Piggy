@@ -148,7 +148,6 @@ class Piggy(PiggyParent):
           self.fwd()
 
     def scan_around_wall(self):
-      self.fwd()
          back = 0
       while True:                                    
         if (self.read_distance() > (300 + back)):             
