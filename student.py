@@ -149,29 +149,40 @@ class Piggy(PiggyParent):
 
     def scan_around_wall(self):
       self.fwd()
-      while True:
-        if self.read_distance() < 150:
-          self.stop()
-          self.servo(1000)
-          if self.read_distance() > 300:
-            time.sleep(1)
-            self.left()
-            time.sleep(1)
-            self.fwd()
-            time.sleep(2)
-            self.stop()
-            time.sleep(1)
-            self.left()
-            time.sleep(1)
-            self.fwd()
-          self.servo(2000)
-          if self.read_distance() > 300:
-            self.right()
-            self.fwd()
-            time.sleep(2)
-            self.stop()
-            self.left()
-            self.fwd()
+         back = 0
+      while True:                                    
+        if (self.read_distance() > (300 + back)):             
+          self.fwd()                                    
+          time.sleep(1)                               
+          self.stop()                                 
+        elif (self.read_distance() < (299 + back)):           
+            self.servo(800)                           
+            time.sleep(1)                             
+            self.stop()                               
+            right = self.read_distance()              
+            self.servo(2000)                          
+            time.sleep(1)                             
+            self.stop()                               
+            left = self.read_distance()               
+            self.servo(1400)                          
+            time.sleep(1)                             
+            self.stop()                               
+            if (abs(right - left) > 100):
+              if (right > left):
+                self.servo(1400)                        
+                time.sleep(1)                           
+                self.stop()                             
+                self.wall_avoid()                       
+              elif (left > right):
+                self.servo(1400)                        
+                time.sleep(1)                           
+                self.stop()                             
+                self.wall_avoid_left()                  
+            else:
+              self.back()
+              time.sleep(2)
+              self.stop()
+              back += 100
           
           
 
