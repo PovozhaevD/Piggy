@@ -171,20 +171,34 @@ class Piggy(PiggyParent):
                 self.servo(1400)                        
                 time.sleep(1)                           
                 self.stop()                             
-                self.wall_avoid()                       
+                self.check_turn_around_wall()                       
               elif (left > right):
                 self.servo(1400)                        
                 time.sleep(1)                           
                 self.stop()                             
-                self.wall_avoid_left()                  
+                self.go_around_left()                  
             else:
               self.back()
               time.sleep(2)
               self.stop()
               back += 100
           
-          
-
+    def go_around_left(self):
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          time.sleep(1)
+          self.stop()
+        elif (self.read_distance() < 299):
+            self.right(primary=-100, counter=100)
+            time.sleep(0.3)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=100, counter=-100)
+            time.sleep(0.3)
+            self.stop()
 
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
