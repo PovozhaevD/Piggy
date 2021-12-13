@@ -187,42 +187,37 @@ class Piggy(PiggyParent):
 
 
 
-def scan_around_wall_swerve(self):
-      back = 0
-      while True:
-        if (self.read_distance() > (300 + back)):             
-          self.fwd()                                    
-          time.sleep(1)                               
-          self.stop()                                 
-        elif (self.read_distance() < (299 + back)):           
-            self.servo(800)                           
-            time.sleep(1)                             
-            self.stop()                               
-            right = self.read_distance()              
-            self.servo(2000)                          
-            time.sleep(1)                             
-            self.stop()                               
-            left = self.read_distance()               
-            self.servo(1400)                          
-            time.sleep(1)                             
-            self.stop()                               
-            if (abs(right - left) > 100):
-              if (right > left):
-                self.servo(1400)                        
-                time.sleep(1)                           
-                self.stop()                             
-                self.check_turn_around_wall()                       
-              elif (left > right):
-                self.servo(1400)                        
-                time.sleep(1)                           
-                self.stop()                             
-                self.go_around_left()                  
-            else:
-              self.back()
-              time.sleep(2)
-              self.stop()
-              back += 100
+    def m_swerve(self, direction = "R"):                                  
+      self.stop()
+      self.servo(self.MIDPOINT)
+      if "R" in direction:
+        self.right(primary=100, counter=80) 
+        time.sleep(0.5)
+        self.stop()
+        self.left(primary=100, counter=80) 
+      elif "L" in direction:
+        self.left(primary=100, counter=80)
+        time.sleep(0.5)
+        self.stop()
+        self.right(primary=100, counter=80) 
+      time.sleep(0.5)
+      self.stop()
 
+
+    def m_fwd_w_scan(self):                           
+      while True: 
+        self.fwd()
+        self.servo(1000)
+        if (self.read_distance() < 200):
+          self.m_swerve("L")
+        self.servo(1800)
+        if (self.read_distance() < 200):
+          self.m_swerve("R")
+        self.servo(1400)
+        if (self.read_distance() < 200):
+            self.right(primary=100, counter=-100)
+            time.sleep(0.3)
+            self.stop()
 
 
           
