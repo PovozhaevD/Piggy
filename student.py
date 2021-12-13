@@ -46,7 +46,7 @@ class Piggy(PiggyParent):
                 "wt": ("Check For wall and turn",self.stop_turn),
                 "taw": ("Check For wall and turn around it", self.check_turn_around_wall),
                 "sff": ("Scan for open space to leave wall", self.scan_around_wall),
-                "swerve": ("Check for wall and swerve around it", self.m_fwd_w_scan)
+                "swer": ("Check for wall and swerve around it", self.m_fwd_w_scan)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -188,8 +188,8 @@ class Piggy(PiggyParent):
 
 
     def m_swerve(self, direction = "R"):                  
-      self.stop()
-      self.servo(self.MIDPOINT)
+        self.stop()
+        self.servo(self.MIDPOINT)
       if "R" in direction:
         self.right(primary=100, counter=80) 
         time.sleep(0.5)
@@ -200,24 +200,24 @@ class Piggy(PiggyParent):
         time.sleep(0.5)
         self.stop()
         self.right(primary=100, counter=80) 
-      time.sleep(0.5)
-      self.stop()
+        time.sleep(0.5)
+        self.stop()
 
 
     def m_fwd_w_scan(self):                           
       while True: 
-        self.fwd()
-        self.servo(1000)
+          self.fwd()
+          self.servo(1000)
         if (self.read_distance() < 200):
           self.m_swerve("L")
-        self.servo(1800)
+          self.servo(1800)
         if (self.read_distance() < 200):
           self.m_swerve("R")
-        self.servo(1400)
+          self.servo(1400)
         if (self.read_distance() < 200):
-            self.right(primary=100, counter=-100)
-            time.sleep(0.3)
-            self.stop()
+          self.right(primary=100, counter=-100)
+          time.sleep(0.3)
+          self.stop()
 
 
           
