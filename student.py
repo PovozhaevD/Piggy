@@ -45,7 +45,8 @@ class Piggy(PiggyParent):
                 "w": ("Check For wall", self.stop_at_wall),
                 "wt": ("Check For wall and turn",self.stop_turn),
                 "taw": ("Check For wall and turn around it", self.check_turn_around_wall),
-                "sff": ("Scan for open space to leave wall", self.scan_around_wall)
+                "sff": ("Scan for open space to leave wall", self.scan_around_wall),
+                "swerve": ("Check for wall and actively turn",self.scan_around_wall_swerve)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -182,6 +183,48 @@ class Piggy(PiggyParent):
               time.sleep(2)
               self.stop()
               back += 100
+
+
+
+
+def scan_around_wall_swerve(self):
+      back = 0
+      while True:
+        if (self.read_distance() > (300 + back)):             
+          self.fwd()                                    
+          time.sleep(1)                               
+          self.stop()                                 
+        elif (self.read_distance() < (299 + back)):           
+            self.servo(800)                           
+            time.sleep(1)                             
+            self.stop()                               
+            right = self.read_distance()              
+            self.servo(2000)                          
+            time.sleep(1)                             
+            self.stop()                               
+            left = self.read_distance()               
+            self.servo(1400)                          
+            time.sleep(1)                             
+            self.stop()                               
+            if (abs(right - left) > 100):
+              if (right > left):
+                self.servo(1400)                        
+                time.sleep(1)                           
+                self.stop()                             
+                self.check_turn_around_wall()                       
+              elif (left > right):
+                self.servo(1400)                        
+                time.sleep(1)                           
+                self.stop()                             
+                self.go_around_left()                  
+            else:
+              self.back()
+              time.sleep(2)
+              self.stop()
+              back += 100
+
+
+
           
     def go_around_left(self):
       while True: 
