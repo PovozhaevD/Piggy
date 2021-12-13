@@ -187,9 +187,9 @@ class Piggy(PiggyParent):
 
 
 
-    def m_swerve(self, direction = "R"):                  
-        self.stop()
-        self.servo(self.MIDPOINT)
+    def m_swerve(self, direction = "R"):  
+      self.stop()
+      self.servo(self.MIDPOINT)
       if "R" in direction:
         self.right(primary=100, counter=80) 
         time.sleep(0.5)
