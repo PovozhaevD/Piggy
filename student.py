@@ -207,7 +207,15 @@ class Piggy(PiggyParent):
     def m_fwd_w_scan(self):                           
       while True: 
           self.fwd()
+          self.servo(1500)
+          self.sleep()
+          time.sleep(.2)
           self.servo(1000)
+          self.sleep()
+          time.sleep(.2)
+          self.servo(1500)
+          self.sleep()
+          time.sleep(.2)
           if (self.read_distance() < 200):
             self.m_swerve("L")
             self.servo(1800)
