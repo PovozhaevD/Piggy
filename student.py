@@ -46,7 +46,7 @@ class Piggy(PiggyParent):
                 "wt": ("Check For wall and turn",self.stop_turn),
                 "taw": ("Check For wall and turn around it", self.check_turn_around_wall),
                 "sff": ("Scan for open space to leave wall", self.scan_around_wall),
-                "swer": ("Check for wall and swerve around it", self.m_fwd_w_scan)
+                "fwd scan": ("Swerve around wall", self.m_fwd_w_scan)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
