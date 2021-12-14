@@ -248,9 +248,9 @@ class Piggy(PiggyParent):
 
     def mega_maze(self):
       while True: 
-        self.servo(2300)                         #Look Left
+        self.servo(1000)                         #Look Left
         time.sleep(1)                            #Look Left
-        if (self.read_distance() < 300):         #Is there a wall left1 (yes)
+        if (self.read_distance() < 500):         #Is there a wall left1 (yes)
           self.servo(self.MIDPOINT)                   #Look straight
           time.sleep(1)                          #Look straight
           if (self.read_distance() > 50):       #is there a wall infront1 (No)
@@ -261,14 +261,14 @@ class Piggy(PiggyParent):
             self.right(primary=100, counter=-100)#Turn right
             time.sleep(0.43)                      #Turn right 
             self.stop()                          #Turn right
-        elif (self.read_distance() > 50):       #Is there a wall left1 (No)
+        elif (self.read_distance() > 150):       #Is there a wall left1 (No)
           self.servo(self.MIDPOINT)                   #Look straight
           time.sleep(1)                          #Look straight
-          if (self.read_distance() > 50):       #is there a wall infront2 (No)
+          if (self.read_distance() > 150):       #is there a wall infront2 (No)
             self.fwd()                           #Drive forwards
             time.sleep(0.2)                      #Drive forwards
             self.stop()                          #Drive forwards
-          elif (self.read_distance() < 50):     #is there a wall infront2 (yes)
+          elif (self.read_distance() < 150):     #is there a wall infront2 (yes)
             self.left(primary=100, counter=-100) #Turn left
             time.sleep(0.41)                      #Turn left 
             self.stop()                          #Turn left
