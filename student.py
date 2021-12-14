@@ -214,18 +214,17 @@ class Piggy(PiggyParent):
             self.servo(1500)
             self.stop()
             time.sleep(0.2)
-            if (self.read_distance() > 300)
+            if (self.read_distance() > 300):
               self.m_swerve("R")
             else:
               self.scan_around_wall()
-            
           self.servo(2000)
           time.sleep(.2)
           if (self.read_distance() < 300):
             self.servo(1500)
             self.stop()
             time.sleep(0.2)
-            if (self.read_distance() > 300)
+            if (self.read_distance() > 300):
               self.m_swerve("L")
             else:
               self.scan_around_wall()         
