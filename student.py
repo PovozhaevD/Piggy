@@ -46,7 +46,8 @@ class Piggy(PiggyParent):
                 "wt": ("Check For wall and turn",self.stop_turn),
                 "taw": ("Check For wall and turn around it", self.check_turn_around_wall),
                 "sff": ("Scan for open space to leave wall", self.scan_around_wall),
-                "fwd scan": ("Swerve around wall", self.m_fwd_w_scan)
+                "fwd scan": ("Swerve around wall", self.m_fwd_w_scan),
+                "m": ("Solve maze", self.mega_maze)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -263,6 +264,33 @@ class Piggy(PiggyParent):
             self.right(primary=100, counter=-100)
             time.sleep(0.3)
             self.stop()
+
+    def mega_maze(self):
+      while True: 
+        self.servo(2300)                         #Look Left
+        time.sleep(1)                            #Look Left
+        if (self.read_distance() < 300):         #Is there a wall left1 (yes)
+          self.servo(self.MIDPOINT)                   #Look straight
+          time.sleep(1)                          #Look straight
+          if (self.read_distance() > 50):       #is there a wall infront1 (No)
+            self.fwd()                           #Drive forwards
+            time.sleep(0.2)                      #Drive forwards
+            self.stop()                          #Drive forwards
+          elif (self.read_distance() < 50):     #is there a wall infront1 (yes)
+            self.right(primary=100, counter=-100)#Turn right
+            time.sleep(0.43)                      #Turn right 
+            self.stop()                          #Turn right
+        elif (self.read_distance() > 50):       #Is there a wall left1 (No)
+          self.servo(self.MIDPOINT)                   #Look straight
+          time.sleep(1)                          #Look straight
+          if (self.read_distance() > 50):       #is there a wall infront2 (No)
+            self.fwd()                           #Drive forwards
+            time.sleep(0.2)                      #Drive forwards
+            self.stop()                          #Drive forwards
+          elif (self.read_distance() < 50):     #is there a wall infront2 (yes)
+            self.left(primary=100, counter=-100) #Turn left
+            time.sleep(0.41)                      #Turn left 
+            self.stop()                          #Turn left
 
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
