@@ -213,7 +213,7 @@ class Piggy(PiggyParent):
           self.servo(1000)
           self.stop()
           time.sleep(.2)
-          self.servo(1500)
+          self.servo(2000)
           self.stop()
           time.sleep(.2)
           if (self.read_distance() < 200):
