@@ -208,13 +208,13 @@ class Piggy(PiggyParent):
       while True: 
           self.fwd()
           self.servo(1500)
-          self.sleep()
+          self.stop()
           time.sleep(.2)
           self.servo(1000)
-          self.sleep()
+          self.stop()
           time.sleep(.2)
           self.servo(1500)
-          self.sleep()
+          self.stop()
           time.sleep(.2)
           if (self.read_distance() < 200):
             self.m_swerve("L")
