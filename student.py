@@ -150,8 +150,8 @@ class Piggy(PiggyParent):
           self.fwd()
 
     def scan_around_wall(self):
-      back = 0
-      while True:
+        back = 0
+     
         if (self.read_distance() > (300 + back)):             
           self.fwd()                                    
           time.sleep(1)                               
@@ -208,43 +208,29 @@ class Piggy(PiggyParent):
     def m_fwd_w_scan(self):                           
       while True: 
           self.fwd()
-          self.servo(1500)
-          time.sleep(.2)
-          if (self.read_distance() < 300):
-            self.m_swerve("L")
-            self.servo(1800)
-          if (self.read_distance() < 300):
-            self.m_swerve("R")
-            self.servo(1400)
-          if (self.read_distance() < 300):
-            self.right(primary=100, counter=-100)
-            time.sleep(0.3)
-            self.stop()
           self.servo(1000)
           time.sleep(.2)
           if (self.read_distance() < 300):
-            self.m_swerve("L")
-            self.servo(1800)
-          if (self.read_distance() < 300):
-            self.m_swerve("R")
-            self.servo(1400)
-          if (self.read_distance() < 300):
-            self.right(primary=100, counter=-100)
-            time.sleep(0.3)
+            self.servo(1500)
             self.stop()
+            time.sleep(0.2)
+            if (self.read_distance() > 300)
+              self.m_swerve("R")
+            else:
+              self.scan_around_wall()
+            
           self.servo(2000)
-          self.stop()
           time.sleep(.2)
           if (self.read_distance() < 300):
-            self.m_swerve("L")
-            self.servo(1800)
-          if (self.read_distance() < 300):
-            self.m_swerve("R")
-            self.servo(1400)
-          if (self.read_distance() < 300):
-            self.right(primary=100, counter=-100)
-            time.sleep(0.3)
+            self.servo(1500)
             self.stop()
+            time.sleep(0.2)
+            if (self.read_distance() > 300)
+              self.m_swerve("L")
+            else:
+              self.scan_around_wall()         
+         
+         
 
 
           
