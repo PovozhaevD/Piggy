@@ -179,11 +179,7 @@ class Piggy(PiggyParent):
                 time.sleep(1)                           
                 self.stop()                             
                 self.go_around_left()                  
-            else:
-              self.back()
-              time.sleep(2)
-              self.stop()
-              back += 100
+  
 
 
 
