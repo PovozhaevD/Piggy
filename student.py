@@ -247,31 +247,29 @@ class Piggy(PiggyParent):
             self.stop()
 
     def mega_maze(self):
-      while True: 
-        self.servo(1000)                         #Look Left
-        time.sleep(1)                            #Look Left
-        if (self.read_distance() < 500):         #Is there a wall left1 (yes)
-          self.servo(self.MIDPOINT)                   #Look straight
-          time.sleep(1)                          #Look straight
-          if (self.read_distance() > 50):       #is there a wall infront1 (No)
-            self.fwd()                           #Drive forwards
-            time.sleep(0.2)                      #Drive forwards
-            self.stop()                          #Drive forwards
-          elif (self.read_distance() < 50):     #is there a wall infront1 (yes)
-            self.right(primary=100, counter=-100)#Turn right
-            time.sleep(0.43)                      #Turn right 
-            self.stop()                          #Turn right
-        elif (self.read_distance() > 150):       #Is there a wall left1 (No)
-          self.servo(self.MIDPOINT)                   #Look straight
-          time.sleep(1)                          #Look straight
-          if (self.read_distance() > 150):       #is there a wall infront2 (No)
-            self.fwd()                           #Drive forwards
-            time.sleep(0.2)                      #Drive forwards
-            self.stop()                          #Drive forwards
-          elif (self.read_distance() < 150):     #is there a wall infront2 (yes)
-            self.left(primary=100, counter=-100) #Turn left
-            time.sleep(0.41)                      #Turn left 
-            self.stop()                          #Turn left
+      while True:
+        sleepy = .25
+        dist_sens = 125
+        self.fwd()
+        if (self.read_distance() <= dist_sens):
+          self.stop()
+          self.servo(800)
+          time.sleep(.25)
+          righty = self.read_distance()
+          self.servo(2000)
+          time.sleep(.25)
+          lefty = self.read_distance()
+          self.servo(1300)
+          if lefty > righty:
+            self.left()
+            time.sleep(1)
+            self.fwd()
+          if righty > lefty:
+            self.right()
+            time.sleep(1)
+            self.fwd()
+          else:
+            self.back() 
 
     def example_move(self):
         """this is an example dance move that should be replaced by student-created content"""
